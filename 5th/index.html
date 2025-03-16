@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Mood Tracker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <h1 class="display-5 fw-bold mb-4">Daily Mood Tracker</h1>
+                        <p class="lead mb-4">How are you feeling today?</p>
+                        <div class="date-display" id="currentDate"></div>
+                        
+                        <div class="mood-container">
+                            <div class="mood-btn happy-btn" data-mood="happy" data-color="var(--happy-color)">
+                                <div class="mood-icon">😊</div>
+                                <div class="mood-label">Happy</div>
+                            </div>
+                            <div class="mood-btn sad-btn" data-mood="sad" data-color="var(--sad-color)">
+                                <div class="mood-icon">😢</div>
+                                <div class="mood-label">Sad</div>
+                            </div>
+                            <div class="mood-btn excited-btn" data-mood="excited" data-color="var(--excited-color)">
+                                <div class="mood-icon">🤩</div>
+                                <div class="mood-label">Excited</div>
+                            </div>
+                            <div class="mood-btn calm-btn" data-mood="calm" data-color="var(--calm-color)">
+                                <div class="mood-icon">😌</div>
+                                <div class="mood-label">Calm</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 collapse" id="noteCollapse">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-floating mb-3">
+                                        <textarea class="form-control" id="moodNote" style="height: 100px"></textarea>
+                                        <label for="moodNote">Add a note about your mood (optional)</label>
+                                    </div>
+                                    <button class="btn btn-primary" id="saveNote">Save Note</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline-secondary mt-3 btn-add-note" type="button" data-bs-toggle="collapse" data-bs-target="#noteCollapse" aria-expanded="false" aria-controls="noteCollapse">
+                            <i class="fas fa-plus-circle me-2"></i>Add Note
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4"><i class="fas fa-history me-2"></i>Mood History</h2>
+                        <div id="moodHistory" class="mood-history-container">
+                            <div class="text-center py-5 text-muted">
+                                <i class="fas fa-cloud fs-1 mb-3"></i>
+                                <p>Your mood history will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Daily Mood Tracker - Web Development Internship Project</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

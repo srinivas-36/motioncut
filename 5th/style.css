@@ -1,0 +1,211 @@
+
+:root {
+    --happy-color: #FFD166;
+    --sad-color: #73A5C6;
+    --excited-color: #FF8C42;
+    --calm-color: #78C091;
+    --neutral-color: #E9ECEF;
+    --dark-bg: #212529;
+    --dark-card: #343A40;
+    --dark-text: #f8f9fa;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.5s ease;
+    min-height: 100vh;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .card {
+    background-color: var(--dark-card);
+    color: var(--dark-text);
+}
+
+.mood-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.mood-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #dee2e6;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-mode .mood-btn {
+    background-color: var(--dark-card);
+    border-color: #495057;
+}
+
+.mood-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.mood-btn.selected {
+    transform: scale(1.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.mood-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mood-btn:hover::before {
+    opacity: 1;
+}
+
+.mood-icon {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.mood-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.happy-btn { border-color: var(--happy-color); }
+.sad-btn { border-color: var(--sad-color); }
+.excited-btn { border-color: var(--excited-color); }
+.calm-btn { border-color: var(--calm-color); }
+
+.happy-btn.selected { background-color: var(--happy-color); }
+.sad-btn.selected { background-color: var(--sad-color); }
+.excited-btn.selected { background-color: var(--excited-color); }
+.calm-btn.selected { background-color: var(--calm-color); }
+
+.date-display {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(30deg);
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.history-item {
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.history-item:hover {
+    transform: translateX(5px);
+}
+
+.mood-history-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+@media (max-width: 576px) {
+    .mood-btn {
+        width: 80px;
+        height: 80px;
+    }
+
+    .mood-icon {
+        font-size: 2rem;
+    }
+
+    .mood-label {
+        font-size: 0.8rem;
+    }
+}
+
+.animate-mood {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.btn-add-note {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-add-note::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    transform: translateX(-100%);
+}
+
+.btn-add-note:hover::after {
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(248, 249, 250, 0.8);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.5s ease;
+}
+
+.dark-mode footer {
+    background-color: rgba(33, 37, 41, 0.8);
+}
